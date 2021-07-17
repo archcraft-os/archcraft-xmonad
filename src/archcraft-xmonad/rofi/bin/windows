@@ -1,0 +1,5 @@
+#!/bin/sh
+
+DIR="$HOME/.xmonad"
+
+rofi -no-lazy-grab -show window -theme $DIR/rofi/themes/window.rasi
