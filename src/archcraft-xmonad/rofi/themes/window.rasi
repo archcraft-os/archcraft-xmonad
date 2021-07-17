@@ -46,7 +46,7 @@ textbox-prompt-colon {
 }
 
 inputbar {
-	children: 						[ textbox-prompt-colon, prompt ];
+	children: 						[ textbox-prompt-colon, prompt, entry ];
     background-color:               @background;
     text-color:                     @foreground;
     expand:                         false;
@@ -65,7 +65,7 @@ entry {
     placeholder-color:              @foreground;
     expand:                         true;
     horizontal-align:               0;
-    placeholder:                    "Search";
+    placeholder:                    "";
     blink:                          true;
     padding:                        4px 0px 0px 0px;
 }
