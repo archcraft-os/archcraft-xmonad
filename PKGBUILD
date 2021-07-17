@@ -2,7 +2,7 @@
 
 pkgname=archcraft-xmonad
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="xmonad configurations for Archcraft"
 arch=('any')
 license=('GPL3')
