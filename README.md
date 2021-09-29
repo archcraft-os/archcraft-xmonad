@@ -1,2 +1,2 @@
 # archcraft-xmonad
- xmonad configurations for Archcraft 
+ // Configuration : xmonad
