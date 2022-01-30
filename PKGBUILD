@@ -2,7 +2,7 @@
 
 pkgname=archcraft-xmonad
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Xmonad Configurations for Archcraft"
 url="https://github.com/archcraft-os/archcraft-xmonad"
 arch=('any')
