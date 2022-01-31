@@ -31,6 +31,7 @@ package() {
 	chmod +x "$_config"/bin/*
 	chmod +x "$_config"/rofi/bin/*
 
+	install -Dm 644 dunstrc   		"$_config"/dunstrc
 	install -Dm 644 xmonad.hs   	"$_config"/xmonad.hs
 	install -Dm 644 picom.conf   	"$_config"/picom.conf
 	install -Dm 644 wallpaper.png   "$_config"/wallpaper.png
