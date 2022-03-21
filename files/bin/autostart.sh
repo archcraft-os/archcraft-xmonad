@@ -28,6 +28,9 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 # Restore wallpaper
 hsetroot -cover ~/.xmonad/wallpaper.png
 
+# enable num lock
+numlockx &
+
 # Lauch notification daemon
 ~/.xmonad/bin/xmodunst.sh
 
