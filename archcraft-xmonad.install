@@ -1,0 +1,20 @@
+post_install() {
+	local _user=`echo ${SUDO_USER:-$(whoami)}`
+	local _gid=`echo ${SUDO_GID}`
+	local _group=`cat /etc/group | grep ${_gid} | cut -d: -f1 | head -1`
+	local _dir="/home/${_user}/.xmonad"
+	
+	if [[ ! -d "${_dir}" ]]; then
+		echo -e "\n[*] Copying 'xmonad' config files into ${_dir}..."
+		mkdir -p ${_dir}
+		cp -rf /etc/skel/.xmonad/* ${_dir}/
+		chown -R ${_user}:${_group} ${_dir}/
+		if [[ -d "${_dir}" ]]; then
+			echo -e "[*] Done!\n"
+		else
+			echo -e "[*] Failed!\n"
+		fi
+	else
+		echo -e "\n[*] Configurations for 'xmonad' already exist on your system.\n Please copy the config files manually from '/etc/skel/.xmonad' before you login into xmonad.\n"
+	fi
+}
