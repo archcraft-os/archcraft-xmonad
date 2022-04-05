@@ -41,7 +41,6 @@ web_browser			= spawn "firefox"
 rofi_asroot 		= spawn "~/.xmonad/rofi/bin/asroot"
 rofi_launcher 		= spawn "~/.xmonad/rofi/bin/launcher"
 rofi_mpd 			= spawn "~/.xmonad/rofi/bin/mpd"
-rofi_network 		= spawn "~/.xmonad/rofi/bin/network"
 rofi_network_menu 	= spawn "~/.xmonad/rofi/bin/network_menu"
 rofi_powermenu 		= spawn "~/.xmonad/rofi/bin/powermenu"
 rofi_screenshot 	= spawn "~/.xmonad/rofi/bin/screenshot"
@@ -89,7 +88,6 @@ myKeys conf@(XConfig {XMonad.modMask = super}) = M.fromList $
     , ((super,               		xK_n), 		rofi_network_menu)
     , ((super,               		xK_x), 		rofi_powermenu)
     , ((mod1Mask .|. controlMask, 	xK_m), 		rofi_mpd)
-    , ((mod1Mask .|. controlMask, 	xK_n), 		rofi_network)
     , ((mod1Mask .|. controlMask, 	xK_s), 		rofi_screenshot)
     , ((mod1Mask .|. controlMask, 	xK_r), 		rofi_asroot)
     , ((mod1Mask .|. controlMask, 	xK_w), 		rofi_windows)
