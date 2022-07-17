@@ -136,7 +136,7 @@ font-1 = "Iosevka Nerd Font:pixelsize=12;4"
 ;   modules-center = xwindow xbrightness
 ;   modules-right = ipc clock
 
-modules-left = spacer workspaces sep2 title 
+modules-left = spacer workspaces sep2 title
 modules-center = mpd sep2 cpu sep memory sep filesystem
 modules-right = pulseaudio sep battery sep speed sep date spacer
 

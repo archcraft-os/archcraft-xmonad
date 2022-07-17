@@ -76,7 +76,7 @@ myKeys conf@(XConfig {XMonad.modMask = super}) = M.fromList $
 
     -- launch terminal
     [ ((super, xK_Return), 			spawn $ XMonad.terminal conf)
-    , ((super .|. shiftMask, 		xK_Return), spawn "~/.xmonad/bin/xmoterm.sh -f")
+    , ((super .|. shiftMask, 		xK_Return), spawn "~/.xmonad/bin/xmoterm.sh --float")
 
 	-- launch applications
     , ((super .|. shiftMask, 		xK_f), 		file_manager)
@@ -100,6 +100,7 @@ myKeys conf@(XConfig {XMonad.modMask = super}) = M.fromList $
     , ((0,         xF86XK_AudioRaiseVolume), 	spawn "volume --inc")
     , ((0,         xF86XK_AudioLowerVolume), 	spawn "volume --dec")
     , ((0,         xF86XK_AudioMute), 			spawn "volume --toggle")
+    , ((0,         xF86XK_AudioMicMute), 		spawn "volume --toggle-mic")
 
     -- Brightness keys
     , ((0,         xF86XK_MonBrightnessUp), 	spawn "brightness --inc")

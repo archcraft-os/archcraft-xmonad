@@ -2,22 +2,19 @@
 
 pkgname=archcraft-xmonad
 pkgver=1.0
-pkgrel=5
+pkgrel=6
 pkgdesc="Xmonad Configurations for Archcraft"
 url="https://github.com/archcraft-os/archcraft-xmonad"
 arch=('any')
 license=('GPL3')
 makedepends=('git')
 depends=('xmonad' 'xmonad-contrib' 'xmonad-utils' 'hsetroot' 'xorg-xmessage'
-		'archcraft-skeleton'
 		'alacritty' 'thunar' 'geany'
 		'rofi' 'polybar' 'dunst'
 		'mpd' 'mpc'
 		'maim' 'xclip' 'viewnior'
 		'ksuperkey' 
 		'betterlockscreen'
-		'picom-ibhagwan-git' 
-		'xfce-polkit' 
 		'xfce4-power-manager' 
 		'xorg-xsetroot'
 )
