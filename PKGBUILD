@@ -44,4 +44,8 @@ package() {
 	install -Dm 644 xmonad.hs   	"$_config"/xmonad.hs
 	install -Dm 644 picom.conf   	"$_config"/picom.conf
 	install -Dm 644 wallpaper.png   "$_config"/wallpaper.png
+
+	# Installing pacman hooks
+	install -Dm 644 recompile-xmonad.hook      	${pkgdir}/usr/share/libalpm/hooks/recompile-xmonad.hook
+	install -Dm 644 recompile-xmonadh.hook      ${pkgdir}/usr/share/libalpm/hooks/recompile-xmonadh.hook
 }
