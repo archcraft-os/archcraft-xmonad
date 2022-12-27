@@ -75,122 +75,122 @@ myWorkspaces    		= ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 myKeys conf@(XConfig {XMonad.modMask = super}) = M.fromList $
 
     -- launch terminal
-    [ ((super, xK_Return), 			spawn $ XMonad.terminal conf)
-    , ((super .|. shiftMask, 		xK_Return), spawn "~/.xmonad/bin/xmoterm.sh --float")
+    [ ((super, xK_Return),    spawn $ XMonad.terminal conf)
+    , ((super .|. shiftMask,  xK_Return), spawn "~/.xmonad/bin/xmoterm.sh --float")
 
 	-- launch applications
-    , ((super .|. shiftMask, 		xK_f), 		file_manager)
-    , ((super .|. shiftMask, 		xK_e), 		text_editor)
-    , ((super .|. shiftMask, 		xK_w), 		web_browser)
+    , ((super .|. shiftMask,  xK_f),  file_manager)
+    , ((super .|. shiftMask,  xK_e),  text_editor)
+    , ((super .|. shiftMask,  xK_w),  web_browser)
 
     -- launch rofi menus
-    , ((mod1Mask,           		xK_F1), 	rofi_launcher)
-    , ((super,               		xK_n), 		rofi_network_menu)
-    , ((super,               		xK_x), 		rofi_powermenu)
-    , ((mod1Mask .|. controlMask, 	xK_m), 		rofi_mpd)
-    , ((mod1Mask .|. controlMask, 	xK_s), 		rofi_screenshot)
-    , ((mod1Mask .|. controlMask, 	xK_r), 		rofi_asroot)
-    , ((mod1Mask .|. controlMask, 	xK_w), 		rofi_windows)
+    , ((mod1Mask,                 xK_F1), rofi_launcher)
+    , ((super,                    xK_n),  rofi_network_menu)
+    , ((super,                    xK_x),  rofi_powermenu)
+    , ((mod1Mask .|. controlMask, xK_m),  rofi_mpd)
+    , ((mod1Mask .|. controlMask, xK_s),  rofi_screenshot)
+    , ((mod1Mask .|. controlMask, xK_r),  rofi_asroot)
+    , ((mod1Mask .|. controlMask, xK_w),  rofi_windows)
 
     -- Audio keys
-    , ((0,         xF86XK_AudioPlay), 			spawn "mpc toggle")
-    , ((0,         xF86XK_AudioPrev), 			spawn "mpc prev")
-    , ((0,         xF86XK_AudioNext), 			spawn "mpc next")
-    , ((0,         xF86XK_AudioStop), 			spawn "mpc stop")
-    , ((0,         xF86XK_AudioRaiseVolume), 	spawn "volume --inc")
-    , ((0,         xF86XK_AudioLowerVolume), 	spawn "volume --dec")
-    , ((0,         xF86XK_AudioMute), 			spawn "volume --toggle")
-    , ((0,         xF86XK_AudioMicMute), 		spawn "volume --toggle-mic")
+    , ((0, xF86XK_AudioPlay),         spawn "mpc toggle")
+    , ((0, xF86XK_AudioPrev),         spawn "mpc prev")
+    , ((0, xF86XK_AudioNext),         spawn "mpc next")
+    , ((0, xF86XK_AudioStop),         spawn "mpc stop")
+    , ((0, xF86XK_AudioRaiseVolume),  spawn "volume --inc")
+    , ((0, xF86XK_AudioLowerVolume),  spawn "volume --dec")
+    , ((0, xF86XK_AudioMute),         spawn "volume --toggle")
+    , ((0, xF86XK_AudioMicMute),      spawn "volume --toggle-mic")
 
     -- Brightness keys
-    , ((0,         xF86XK_MonBrightnessUp), 	spawn "brightness --inc")
-    , ((0,         xF86XK_MonBrightnessDown), 	spawn "brightness --dec") 
+    , ((0, xF86XK_MonBrightnessUp),   spawn "brightness --inc")
+    , ((0, xF86XK_MonBrightnessDown), spawn "brightness --dec") 
 
     -- Screenshot
-    , ((0, 							xK_Print), 	spawn $ "takeshot --now")
-    , ((mod1Mask, 					xK_Print), 	spawn $ "takeshot --in5")
-    , ((shiftMask, 					xK_Print), 	spawn $ "takeshot --in10")
-    , ((controlMask,				xK_Print), 	spawn $ "takeshot --win")
-    , ((mod1Mask .|. controlMask  , xK_Print), 	spawn $ "takeshot --area")
+    , ((0,                        xK_Print),  spawn $ "takeshot --now")
+    , ((mod1Mask,                 xK_Print),  spawn $ "takeshot --in5")
+    , ((shiftMask,                xK_Print),  spawn $ "takeshot --in10")
+    , ((controlMask,              xK_Print),  spawn $ "takeshot --win")
+    , ((mod1Mask .|. controlMask, xK_Print),  spawn $ "takeshot --area")
 
     -- Close focused window
-    , ((super, 		xK_c), 						kill)
-    , ((super, 		xK_Escape), 				spawn "xkill")
+    , ((super,  xK_c),       kill)
+    , ((super,  xK_Escape),  spawn "xkill")
     
     -- Lockscreen
-    , ((mod1Mask .|. controlMask, 	xK_l), 		spawn "betterlockscreen --lock")
+    , ((mod1Mask .|. controlMask, xK_l),  spawn "betterlockscreen --lock")
 
     -- Change gaps on the fly
-    , ((super .|. controlMask, 	xK_g), sendMessage $ ToggleGaps)               					-- toggle all gaps
-    , ((super .|. shiftMask, 	xK_g), sendMessage $ setGaps [(L,50), (R,50), (U,80), (D,50)]) 	-- reset the GapSpec
+    , ((super .|. controlMask, xK_g), sendMessage $ ToggleGaps)      -- toggle all gaps
+    , ((super .|. shiftMask,   xK_g), sendMessage $ setGaps [(L,50), (R,50), (U,80), (D,50)]) 	-- reset the GapSpec
     
-    , ((super .|. controlMask, 	xK_t), sendMessage $ IncGap 10 L)     -- increment the left-hand gap
-    , ((super .|. shiftMask, 	xK_t), sendMessage $ DecGap 10 L)     -- decrement the left-hand gap
+    , ((super .|. controlMask, xK_t), sendMessage $ IncGap 10 L)     -- increment the left-hand gap
+    , ((super .|. shiftMask,   xK_t), sendMessage $ DecGap 10 L)     -- decrement the left-hand gap
     
-    , ((super .|. controlMask, 	xK_y), sendMessage $ IncGap 10 U)     -- increment the top gap
-    , ((super .|. shiftMask, 	xK_y), sendMessage $ DecGap 10 U)     -- decrement the top gap
+    , ((super .|. controlMask, xK_y), sendMessage $ IncGap 10 U)     -- increment the top gap
+    , ((super .|. shiftMask,   xK_y), sendMessage $ DecGap 10 U)     -- decrement the top gap
     
-    , ((super .|. controlMask, 	xK_u), sendMessage $ IncGap 10 D)     -- increment the bottom gap
-    , ((super .|. shiftMask, 	xK_u), sendMessage $ DecGap 10 D)     -- decrement the bottom gap
+    , ((super .|. controlMask, xK_u), sendMessage $ IncGap 10 D)     -- increment the bottom gap
+    , ((super .|. shiftMask,   xK_u), sendMessage $ DecGap 10 D)     -- decrement the bottom gap
 
-    , ((super .|. controlMask, 	xK_i), sendMessage $ IncGap 10 R)     -- increment the right-hand gap
-    , ((super .|. shiftMask, 	xK_i), sendMessage $ DecGap 10 R)     -- decrement the right-hand gap
+    , ((super .|. controlMask, xK_i), sendMessage $ IncGap 10 R)     -- increment the right-hand gap
+    , ((super .|. shiftMask,   xK_i), sendMessage $ DecGap 10 R)     -- decrement the right-hand gap
 
 	-- Window Manager Specific -----------------------------------------
 
     -- Resize viewed windows to the correct size
-    , ((super,                   xK_r), 		refresh)
+    , ((super,  xK_r),  refresh)
 
     -- Move focus to the master window
-    , ((super,               	xK_m), 		windows W.focusMaster)
+    , ((super,  xK_m),  windows W.focusMaster)
 
     -- Swap the focused window and the master window
-    , ((super,               	xK_s), 		windows W.swapMaster)
+    , ((super,  xK_s),  windows W.swapMaster)
 
     -- Push window back into tiling
-    , ((super,               	xK_t),		withFocused $ windows . W.sink)
+    , ((super,  xK_t),  withFocused $ windows . W.sink)
 
     -- Rotate through the available layout algorithms
-    , ((super,               xK_space), 		sendMessage NextLayout)
+    , ((super,  xK_space),  sendMessage NextLayout)
 
     --  Reset the layouts on the current workspace to default
-    , ((super .|. shiftMask, xK_space), 		setLayout $ XMonad.layoutHook conf)
+    , ((super .|. shiftMask, xK_space),  setLayout $ XMonad.layoutHook conf)
 
     -- Move focus to the next window
-    , ((super,                 xK_Tab), 		windows W.focusDown)
+    , ((super,xK_Tab),    windows W.focusDown)
 
     -- Move focus to the next window
-    , ((super,               	xK_j), 		windows W.focusDown)
-    , ((super,                xK_Left), 		windows W.focusDown)
+    , ((super,xK_j),      windows W.focusDown)
+    , ((super,xK_Left),   windows W.focusDown)
 
     -- Move focus to the previous window
-    , ((super,               	xK_k), 		windows W.focusUp)
-    , ((super,               xK_Right), 		windows W.focusUp)
+    , ((super,xK_k),      windows W.focusUp)
+    , ((super,xK_Right),  windows W.focusUp)
 
     -- Swap the focused window with the next window
-    , ((super .|. shiftMask, 	xK_j),		windows W.swapDown)
-    , ((super .|. shiftMask, 	xK_Left),	windows W.swapDown)
+    , ((super .|. shiftMask, 	xK_j),     windows W.swapDown)
+    , ((super .|. shiftMask, 	xK_Left),  windows W.swapDown)
 
     -- Swap the focused window with the previous window
-    , ((super .|. shiftMask, 	xK_k),		windows W.swapUp)
-    , ((super .|. shiftMask, 	xK_Right),	windows W.swapUp)
+    , ((super .|. shiftMask, 	xK_k),     windows W.swapUp)
+    , ((super .|. shiftMask, 	xK_Right), windows W.swapUp)
 
     -- Shrink the master area
-    , ((super,               	xK_h),		sendMessage Shrink)
-    , ((super .|. controlMask,   xK_Left),	sendMessage Shrink)
+    , ((super,                  xK_h),     sendMessage Shrink)
+    , ((super .|. controlMask,  xK_Left),  sendMessage Shrink)
 
     -- Expand the master area
-    , ((super,               	xK_l),		sendMessage Expand)
-    , ((super .|. controlMask,   xK_Right),	sendMessage Expand)
+    , ((super,                  xK_l),     sendMessage Expand)
+    , ((super .|. controlMask,  xK_Right), sendMessage Expand)
 
     -- Increment the number of windows in the master area
-    , ((super, 					xK_comma),		sendMessage (IncMasterN 1))
+    , ((super,  xK_comma),   sendMessage (IncMasterN 1))
 
     -- Deincrement the number of windows in the master area
-    , ((super,					xK_period),		sendMessage (IncMasterN (-1)))
+    , ((super,  xK_period),  sendMessage (IncMasterN (-1)))
 
     -- Restart xmonad
-    , ((super, 						 xK_q),		spawn "xmonad --recompile; xmonad --restart")
+    , ((super,  xK_q),  spawn "xmonad --recompile; xmonad --restart")
 
     ]
     ++
@@ -215,14 +215,14 @@ myMouseBindings (XConfig {XMonad.modMask = super}) = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
     [ ((super, button1), (\w -> focus w >> mouseMoveWindow w
-                                       >> windows W.shiftMaster))
+                                        >> windows W.shiftMaster))
 
     -- mod-button2, Raise the window to the top of the stack
     , ((super, button2), (\w -> focus w >> windows W.shiftMaster))
 
     -- mod-button3, Set the window to floating mode and resize by dragging
     , ((super, button3), (\w -> focus w >> mouseResizeWindow w
-                                       >> windows W.shiftMaster))
+                                        >> windows W.shiftMaster))
     ]
 
 -- ## Layouts ## -------------------------------------------------------------------------
