@@ -1,5 +1,4 @@
--- Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
--- Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
+-- Copyright (C) 2020-2023 Aditya Shakya <adi1090x@gmail.com>
 --
 -- Xmonad config for Archcraft 
 
@@ -97,21 +96,21 @@ myKeys conf@(XConfig {XMonad.modMask = super}) = M.fromList $
     , ((0,         xF86XK_AudioPrev), 			spawn "mpc prev")
     , ((0,         xF86XK_AudioNext), 			spawn "mpc next")
     , ((0,         xF86XK_AudioStop), 			spawn "mpc stop")
-    , ((0,         xF86XK_AudioRaiseVolume), 	spawn "volume --inc")
-    , ((0,         xF86XK_AudioLowerVolume), 	spawn "volume --dec")
-    , ((0,         xF86XK_AudioMute), 			spawn "volume --toggle")
-    , ((0,         xF86XK_AudioMicMute), 		spawn "volume --toggle-mic")
+    , ((0,         xF86XK_AudioRaiseVolume), 	spawn "~/.xmonad/bin/xmovolume.sh --inc")
+    , ((0,         xF86XK_AudioLowerVolume), 	spawn "~/.xmonad/bin/xmovolume.sh --dec")
+    , ((0,         xF86XK_AudioMute), 			spawn "~/.xmonad/bin/xmovolume.sh --toggle")
+    , ((0,         xF86XK_AudioMicMute), 		spawn "~/.xmonad/bin/xmovolume.sh --toggle-mic")
 
     -- Brightness keys
-    , ((0,         xF86XK_MonBrightnessUp), 	spawn "brightness --inc")
-    , ((0,         xF86XK_MonBrightnessDown), 	spawn "brightness --dec") 
+    , ((0,         xF86XK_MonBrightnessUp), 	spawn "~/.xmonad/bin/xmobrightness.sh --inc")
+    , ((0,         xF86XK_MonBrightnessDown), 	spawn "~/.xmonad/bin/xmobrightness.sh --dec") 
 
     -- Screenshot
-    , ((0, 							xK_Print), 	spawn $ "takeshot --now")
-    , ((mod1Mask, 					xK_Print), 	spawn $ "takeshot --in5")
-    , ((shiftMask, 					xK_Print), 	spawn $ "takeshot --in10")
-    , ((controlMask,				xK_Print), 	spawn $ "takeshot --win")
-    , ((mod1Mask .|. controlMask  , xK_Print), 	spawn $ "takeshot --area")
+    , ((0, 							xK_Print), 	spawn $ "~/.xmonad/bin/xmoscreenshot.sh --now")
+    , ((mod1Mask, 					xK_Print), 	spawn $ "~/.xmonad/bin/xmoscreenshot.sh --in5")
+    , ((shiftMask, 					xK_Print), 	spawn $ "~/.xmonad/bin/xmoscreenshot.sh --in10")
+    , ((controlMask,				xK_Print), 	spawn $ "~/.xmonad/bin/xmoscreenshot.sh --win")
+    , ((super, 						xK_Print), 	spawn $ "~/.xmonad/bin/xmoscreenshot.sh --area")
 
     -- Close focused window
     , ((super, 		xK_c), 						kill)
@@ -249,7 +248,7 @@ myManageHook = composeAll . concat $
     , [resource =? i --> doIgnore | i <- myIgnores]
     ]
     where
-		myCFloats = ["alacritty-float", "MPlayer", "mpv",
+		myCFloats = ["alacritty-float", "Music", "MPlayer", "mpv",
 					"Gimp", "feh", "Viewnior", "Gpicview",
 					"Kvantum Manager", "qt5ct", "VirtualBox Manager", "qemu", "Qemu-system-x86_64",
 					"Lxappearance", "Nitrogen", "Arandr", "Pavucontrol", "Xfce4-power-manager-settings", "Nm-connection-editor"]
@@ -258,7 +257,7 @@ myManageHook = composeAll . concat $
 		myIgnores = ["desktop_window"]
 
 -- ## Event handling ## -------------------------------------------------------------------
-myEventHook = ewmhDesktopsEventHook
+--myEventHook = ewmhDesktopsEventHook
 
 -- ## Logging ## --------------------------------------------------------------------------
 myLogHook = return ()
@@ -286,7 +285,7 @@ defaults = def {
       -- hooks, layouts
 		manageHook = myManageHook,
         layoutHook = gaps [(L,0), (R,0), (U,0), (D,0)] $ spacingRaw False (Border 10 0 10 0) True (Border 0 10 0 10) True $ myLayout,
-        handleEventHook    = myEventHook,
+        --handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook
     }

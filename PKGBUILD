@@ -1,8 +1,8 @@
 # Maintainer: Aditya Shakya <adi1090x@gmail.com>
 
 pkgname=archcraft-xmonad
-pkgver=1.0
-pkgrel=7
+pkgver=2.0
+pkgrel=0
 pkgdesc="Xmonad Configurations for Archcraft"
 url="https://github.com/archcraft-os/archcraft-xmonad"
 arch=('any')
@@ -17,6 +17,8 @@ depends=('xmonad' 'xmonad-contrib' 'xmonad-utils' 'hsetroot' 'xorg-xmessage'
 		'betterlockscreen'
 		'xfce4-power-manager' 
 		'xorg-xsetroot'
+		'wmname'
+		'pulsemixer' 'light' 'xcolor'
 )
 conflicts=()
 provides=("${pkgname}")
