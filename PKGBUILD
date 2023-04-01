@@ -2,7 +2,7 @@
 
 pkgname=archcraft-xmonad
 pkgver=2.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Xmonad Configurations for Archcraft"
 url="https://github.com/archcraft-os/archcraft-xmonad"
 arch=('any')
@@ -42,13 +42,13 @@ package() {
 	chmod +x "$_config"/bin/*
 	chmod +x "$_config"/rofi/bin/*
 
-	install -Dm 644 dunstrc   		"$_config"/dunstrc
-	install -Dm 644 xmonad.hs   	"$_config"/xmonad.hs
-	install -Dm 644 picom.conf   	"$_config"/picom.conf
+	install -Dm 644 dunstrc   				"$_config"/dunstrc
+	install -Dm 644 xmonad.hs   			"$_config"/xmonad.hs
+	install -Dm 644 picom.conf   			"$_config"/picom.conf
 	install -Dm 644 picom-ibhagwan.conf   	"$_config"/picom-ibhagwan.conf
 	install -Dm 644 picom-jonaburg.conf   	"$_config"/picom-jonaburg.conf
 	install -Dm 644 picom-original.conf   	"$_config"/picom-original.conf
-	install -Dm 644 wallpaper.png   "$_config"/wallpaper.png
+	install -Dm 644 wallpaper.png   		"$_config"/wallpaper.png
 
 	# Installing pacman hooks
 	install -Dm 644 recompile-xmonad.hook      	${pkgdir}/usr/share/libalpm/hooks/recompile-xmonad.hook
