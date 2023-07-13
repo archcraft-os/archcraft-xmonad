@@ -25,11 +25,11 @@ import qualified Data.Map        as M
 
 -- ## Startup hook ## ---------------------------------------------------------------
 myStartupHook = do
-	spawn "bash ~/.xmonad/bin/autostart.sh"
+	spawn "bash ~/.xmonad/scripts/xmonad_autostart"
 
 -- ## Applications ## ---------------------------------------------------------------
 -- Terminal
-myTerminal      	= "~/.xmonad/bin/xmoterm.sh"
+myTerminal      	= "~/.xmonad/scripts/xmonad_term"
 
 -- Apps
 file_manager		= spawn "thunar"
@@ -37,13 +37,15 @@ text_editor			= spawn "geany"
 web_browser			= spawn "firefox"
 
 -- Rofi Menus
-rofi_asroot 		= spawn "~/.xmonad/rofi/bin/asroot"
-rofi_launcher 		= spawn "~/.xmonad/rofi/bin/launcher"
-rofi_mpd 			= spawn "~/.xmonad/rofi/bin/mpd"
-rofi_network_menu 	= spawn "~/.xmonad/rofi/bin/network_menu"
-rofi_powermenu 		= spawn "~/.xmonad/rofi/bin/powermenu"
-rofi_screenshot 	= spawn "~/.xmonad/rofi/bin/screenshot"
-rofi_windows 		= spawn "~/.xmonad/rofi/bin/windows"
+rofi_network_menu 	= spawn "~/.xmonad/scripts/network_menu"
+rofi_asroot 		= spawn "~/.xmonad/scripts/rofi_asroot"
+rofi_bluetooth 		= spawn "~/.xmonad/scripts/rofi_bluetooth"
+rofi_launcher 		= spawn "~/.xmonad/scripts/rofi_launcher"
+rofi_mpd 			= spawn "~/.xmonad/scripts/rofi_music"
+rofi_powermenu 		= spawn "~/.xmonad/scripts/rofi_powermenu"
+rofi_runner 		= spawn "~/.xmonad/scripts/rofi_runner"
+rofi_screenshot 	= spawn "~/.xmonad/scripts/rofi_screenshot"
+rofi_windows 		= spawn "~/.xmonad/scripts/rofi_windows"
 
 -- ## Settings ## -------------------------------------------------------------------
 
@@ -75,7 +77,8 @@ myKeys conf@(XConfig {XMonad.modMask = super}) = M.fromList $
 
     -- launch terminal
     [ ((super, xK_Return), 			spawn $ XMonad.terminal conf)
-    , ((super .|. shiftMask, 		xK_Return), spawn "~/.xmonad/bin/xmoterm.sh --float")
+    , ((super .|. shiftMask, 		xK_Return), spawn "~/.xmonad/scripts/xmonad_term --float")
+    , ((super .|. mod1Mask, 		xK_Return), spawn "~/.xmonad/scripts/xmonad_term --full")
 
 	-- launch applications
     , ((super .|. shiftMask, 		xK_f), 		file_manager)
@@ -84,33 +87,35 @@ myKeys conf@(XConfig {XMonad.modMask = super}) = M.fromList $
 
     -- launch rofi menus
     , ((mod1Mask,           		xK_F1), 	rofi_launcher)
+    , ((mod1Mask,               	xK_F2), 	rofi_runner)
+    , ((super,               		xK_b), 		rofi_bluetooth)
     , ((super,               		xK_n), 		rofi_network_menu)
     , ((super,               		xK_x), 		rofi_powermenu)
-    , ((mod1Mask .|. controlMask, 	xK_m), 		rofi_mpd)
-    , ((mod1Mask .|. controlMask, 	xK_s), 		rofi_screenshot)
-    , ((mod1Mask .|. controlMask, 	xK_r), 		rofi_asroot)
-    , ((mod1Mask .|. controlMask, 	xK_w), 		rofi_windows)
+    , ((super, 	                    xK_m), 		rofi_mpd)
+    , ((super,                   	xK_s), 		rofi_screenshot)
+    , ((super,                  	xK_r), 		rofi_asroot)
+    , ((super, 	                    xK_w), 		rofi_windows)
 
     -- Audio keys
     , ((0,         xF86XK_AudioPlay), 			spawn "mpc toggle")
     , ((0,         xF86XK_AudioPrev), 			spawn "mpc prev")
     , ((0,         xF86XK_AudioNext), 			spawn "mpc next")
     , ((0,         xF86XK_AudioStop), 			spawn "mpc stop")
-    , ((0,         xF86XK_AudioRaiseVolume), 	spawn "~/.xmonad/bin/xmovolume.sh --inc")
-    , ((0,         xF86XK_AudioLowerVolume), 	spawn "~/.xmonad/bin/xmovolume.sh --dec")
-    , ((0,         xF86XK_AudioMute), 			spawn "~/.xmonad/bin/xmovolume.sh --toggle")
-    , ((0,         xF86XK_AudioMicMute), 		spawn "~/.xmonad/bin/xmovolume.sh --toggle-mic")
+    , ((0,         xF86XK_AudioRaiseVolume), 	spawn "~/.xmonad/scripts/xmonad_volume --inc")
+    , ((0,         xF86XK_AudioLowerVolume), 	spawn "~/.xmonad/scripts/xmonad_volume --dec")
+    , ((0,         xF86XK_AudioMute), 			spawn "~/.xmonad/scripts/xmonad_volume --toggle")
+    , ((0,         xF86XK_AudioMicMute), 		spawn "~/.xmonad/scripts/xmonad_volume --toggle-mic")
 
     -- Brightness keys
-    , ((0,         xF86XK_MonBrightnessUp), 	spawn "~/.xmonad/bin/xmobrightness.sh --inc")
-    , ((0,         xF86XK_MonBrightnessDown), 	spawn "~/.xmonad/bin/xmobrightness.sh --dec") 
+    , ((0,         xF86XK_MonBrightnessUp), 	spawn "~/.xmonad/scripts/xmonad_brightness --inc")
+    , ((0,         xF86XK_MonBrightnessDown), 	spawn "~/.xmonad/scripts/xmonad_brightness --dec") 
 
     -- Screenshot
-    , ((0, 							xK_Print), 	spawn $ "~/.xmonad/bin/xmoscreenshot.sh --now")
-    , ((mod1Mask, 					xK_Print), 	spawn $ "~/.xmonad/bin/xmoscreenshot.sh --in5")
-    , ((shiftMask, 					xK_Print), 	spawn $ "~/.xmonad/bin/xmoscreenshot.sh --in10")
-    , ((controlMask,				xK_Print), 	spawn $ "~/.xmonad/bin/xmoscreenshot.sh --win")
-    , ((super, 						xK_Print), 	spawn $ "~/.xmonad/bin/xmoscreenshot.sh --area")
+    , ((0, 							xK_Print), 	spawn $ "~/.xmonad/scripts/xmonad_screenshot --now")
+    , ((mod1Mask, 					xK_Print), 	spawn $ "~/.xmonad/scripts/xmonad_screenshot --in5")
+    , ((shiftMask, 					xK_Print), 	spawn $ "~/.xmonad/scripts/xmonad_screenshot --in10")
+    , ((controlMask,				xK_Print), 	spawn $ "~/.xmonad/scripts/xmonad_screenshot --win")
+    , ((super, 						xK_Print), 	spawn $ "~/.xmonad/scripts/xmonad_screenshot --area")
 
     -- Close focused window
     , ((super, 		xK_c), 						kill)
@@ -118,6 +123,9 @@ myKeys conf@(XConfig {XMonad.modMask = super}) = M.fromList $
     
     -- Lockscreen
     , ((mod1Mask .|. controlMask, 	xK_l), 		spawn "betterlockscreen --lock")
+
+    -- Misc
+    , ((super, 	                    xK_p), 		spawn "~/.xmonad/scripts/xmonad_colorpicker")
 
     -- Change gaps on the fly
     , ((super .|. controlMask, 	xK_g), sendMessage $ ToggleGaps)               					-- toggle all gaps
@@ -138,16 +146,16 @@ myKeys conf@(XConfig {XMonad.modMask = super}) = M.fromList $
 	-- Window Manager Specific -----------------------------------------
 
     -- Resize viewed windows to the correct size
-    , ((super,                   xK_r), 		refresh)
+    , ((super .|. shiftMask,                xK_r), 		refresh)
 
     -- Move focus to the master window
-    , ((super,               	xK_m), 		windows W.focusMaster)
+    , ((super .|. shiftMask,               	xK_m), 		windows W.focusMaster)
 
     -- Swap the focused window and the master window
-    , ((super,               	xK_s), 		windows W.swapMaster)
+    , ((super .|. shiftMask,               	xK_s), 		windows W.swapMaster)
 
     -- Push window back into tiling
-    , ((super,               	xK_t),		withFocused $ windows . W.sink)
+    , ((super .|. shiftMask,               	xK_t),		withFocused $ windows . W.sink)
 
     -- Rotate through the available layout algorithms
     , ((super,               xK_space), 		sendMessage NextLayout)
@@ -159,11 +167,11 @@ myKeys conf@(XConfig {XMonad.modMask = super}) = M.fromList $
     , ((super,                 xK_Tab), 		windows W.focusDown)
 
     -- Move focus to the next window
-    , ((super,               	xK_j), 		windows W.focusDown)
+    , ((super,               	xK_j), 			windows W.focusDown)
     , ((super,                xK_Left), 		windows W.focusDown)
 
     -- Move focus to the previous window
-    , ((super,               	xK_k), 		windows W.focusUp)
+    , ((super,               	xK_k), 			windows W.focusUp)
     , ((super,               xK_Right), 		windows W.focusUp)
 
     -- Swap the focused window with the next window
