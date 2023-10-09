@@ -34,7 +34,7 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 xsetroot -cursor_name left_ptr
 
 # Restore wallpaper
-hsetroot -root -cover "$xDIR"/theme/wallpaper
+hsetroot -cover "$xDIR"/theme/wallpaper
 
 # Lauch notification daemon
 "$xDIR"/scripts/xmonad_dunst
