@@ -1,8 +1,8 @@
 # Maintainer: Aditya Shakya <adi1090x@gmail.com>
 
 pkgname=archcraft-xmonad
-pkgver=2.0
-pkgrel=6
+pkgver=3.0
+pkgrel=0
 pkgdesc="Xmonad Configurations for Archcraft"
 arch=('any')
 url="https://github.com/archcraft-os/archcraft-xmonad"
