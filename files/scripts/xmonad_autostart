@@ -7,6 +7,9 @@
 # xmonad dir
 xDIR="$HOME/.xmonad"
 
+# Export desktop session
+export XDG_CURRENT_DESKTOP='xmonad'
+
 # Kill already running process
 _ps=(xsettingsd ksuperkey)
 for _prs in "${_ps[@]}"; do
