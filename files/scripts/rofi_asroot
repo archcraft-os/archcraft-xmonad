@@ -3,14 +3,14 @@
 ## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
 
 # Import Current Theme
-DIR="$HOME/.xmonad"
+DIR="$HOME/.config/xmonad"
 RASI="$DIR/theme/rofi/asroot.rasi"
 ASROOT="$DIR/scripts/xmonad_asroot"
 
 # Theme Elements
 prompt='Root'
 mesg="Run Applications As Root"
-term='alacritty --class alacritty-float,alacritty-float --config-file /root/.xmonad/alacritty/alacritty.toml'
+term='alacritty --class alacritty-float,alacritty-float --config-file /root/.config/xmonad/alacritty/alacritty.toml'
 
 # Options
 layout=`cat ${RASI} | grep 'USE_ICON' | cut -d'=' -f2`

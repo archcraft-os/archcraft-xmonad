@@ -5,7 +5,7 @@
 ## Autostart Programs
 
 # xmonad dir
-xDIR="$HOME/.xmonad"
+xdir="$HOME/.config/xmonad"
 
 # Export desktop session
 export XDG_CURRENT_DESKTOP='xmonad'
@@ -19,7 +19,7 @@ for _prs in "${_ps[@]}"; do
 done
 
 # Lauch xsettingsd daemon
-xsettingsd --config="$xDIR"/xsettingsd &
+xsettingsd --config="$xdir"/xsettingsd &
 
 # polkit agent
 if [[ ! `pidof xfce-polkit` ]]; then
@@ -37,16 +37,16 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 xsetroot -cursor_name left_ptr
 
 # Restore wallpaper
-hsetroot -cover "$xDIR"/theme/wallpaper
+hsetroot -cover "$xdir"/theme/wallpaper
 
 # Lauch notification daemon
-"$xDIR"/scripts/xmonad_dunst
+"$xdir"/scripts/xmonad_dunst
 
 # Lauch polybar
-"$xDIR"/scripts/xmonad_bar
+"$xdir"/scripts/xmonad_bar
 
 # Lauch compositor
-"$xDIR"/scripts/xmonad_comp
+"$xdir"/scripts/xmonad_comp
 
 # Start mpd
 exec mpd &

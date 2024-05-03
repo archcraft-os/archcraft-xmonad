@@ -3,7 +3,7 @@
 ## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
 
 # xmonad directory
-DIR="$HOME/.xmonad"
+DIR="$HOME/.config/xmonad"
 
 # Terminate if picom is already running
 killall -q picom

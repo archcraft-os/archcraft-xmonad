@@ -1,8 +1,8 @@
 # Maintainer: Aditya Shakya <adi1090x@gmail.com>
 
 pkgname=archcraft-xmonad
-pkgver=3.0
-pkgrel=2
+pkgver=4.0
+pkgrel=0
 pkgdesc="Xmonad Configurations for Archcraft"
 arch=('any')
 url="https://github.com/archcraft-os/archcraft-xmonad"
@@ -29,6 +29,7 @@ optdepends=('alacritty: default terminal emulator'
 			'yad: display graphical dialogs from shell scripts'
 			'wmname: utility to set the name of your window manager'
 )
+conflicts=('archcraft-xmonad-premium')
 options=(!strip !emptydirs)
 install="${pkgname}.install"
 
@@ -37,7 +38,7 @@ prepare() {
 }
 
 package() {
-	local _wmdir="$pkgdir"/etc/skel/.xmonad
+	local _wmdir="$pkgdir"/etc/skel/.config/xmonad
 	mkdir -p "$_wmdir"
 
 	# Copy config files

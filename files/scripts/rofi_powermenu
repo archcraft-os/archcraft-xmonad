@@ -3,7 +3,7 @@
 ## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
 
 # Import Current Theme
-DIR="$HOME/.xmonad"
+DIR="$HOME/.config/xmonad"
 RASI="$DIR/theme/rofi/powermenu.rasi"
 CNFR="$DIR/theme/rofi/confirm.rasi"
 

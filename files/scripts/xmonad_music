@@ -5,7 +5,7 @@
 ## Run ncmpcpp with alternate config
 
 # xmonad directory
-DIR="$HOME/.xmonad"
+DIR="$HOME/.config/xmonad"
 
 CONFIG="$DIR/alacritty/alacritty.toml"
 

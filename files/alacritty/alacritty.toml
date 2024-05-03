@@ -6,7 +6,7 @@
 ## GENERAL --------------------------------------------------------
 
 ## Import additional configuration files.
-import = ["~/.xmonad/alacritty/colors.toml", "~/.xmonad/alacritty/fonts.toml"]
+import = ["~/.config/xmonad/alacritty/colors.toml", "~/.config/xmonad/alacritty/fonts.toml"]
 
 ## You can set shell.program to the path of your favorite shell, e.g. /bin/zsh.
 ## Entries in shell.args are passed as arguments to the shell.

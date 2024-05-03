@@ -19,9 +19,9 @@ group_id=`echo ${SUDO_GID}`
 user_group=`cat /etc/group | grep $group_id | cut -d: -f1 | head -1`
 
 ## Packages specific
-config_dir="/home/${user_name}"
-skel_dir='/etc/skel'
-wm_config='.xmonad'
+config_dir="/home/${user_name}/.config"
+skel_dir='/etc/skel/.config'
+wm_config='xmonad'
 wm_name='Xmonad'
 current_config="$config_dir/$wm_config"
 updated_config="$config_dir/${wm_config}_pacnew_`date +%Y-%m-%d`"
@@ -30,7 +30,7 @@ updated_config="$config_dir/${wm_config}_pacnew_`date +%Y-%m-%d`"
 
 ## Copy terminal config in /root
 copy_term_cfg_root() {
-	mkdir -p /root/${wm_config} && cp -rf "$skel_dir/$wm_config/alacritty" $_
+	mkdir -p /root/.config/${wm_config} && cp -rf "$skel_dir/$wm_config/alacritty" $_
 }
 
 ## Install Config files

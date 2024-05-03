@@ -17,7 +17,7 @@
 #   Arch repositories: rofi, bluez-utils (contains bluetoothctl)
 
 # Import Current Theme
-DIR="$HOME/.xmonad"
+DIR="$HOME/.config/xmonad"
 RASI="$DIR/theme/rofi/bluetooth.rasi"
 
 # Constants
