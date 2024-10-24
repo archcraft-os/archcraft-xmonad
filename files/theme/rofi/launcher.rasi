@@ -6,10 +6,10 @@
 configuration {
 	modi:                       "drun,run,filebrowser,window";
     show-icons:                 false;
-    display-drun:               "";
-    display-run:                "";
-    display-filebrowser:        "";
-    display-window:             "";
+    display-drun:               "";
+    display-run:                "";
+    display-filebrowser:        "";
+    display-window:             "";
 	drun-display-format:        "{name}";
 	window-format:              "{c} · {t}";
 }
@@ -109,12 +109,12 @@ prompt {
 }
 textbox-prompt-colon {
     enabled:                     true;
+    str:                         "";
     padding:                     6px 10px;
     border:                      1px solid;
     border-radius:               8px;
     border-color:                @border-colour;
     expand:                      false;
-    str:                         "";
     background-color:            @background;
     text-color:                  @foreground;
 }

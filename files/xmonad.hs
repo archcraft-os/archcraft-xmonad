@@ -64,6 +64,9 @@ myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 myTerminal :: String
 myTerminal = "~/.config/xmonad/scripts/xmonad_term"
 
+myTermKitty :: String
+myTermKitty = "~/.config/xmonad/scripts/xmonad_kitty"
+
 -- Apps
 myFileManager    = "thunar"
 myTextEditor     = "geany"
@@ -100,10 +103,13 @@ myLockScreen     = "betterlockscreen --lock"
 -- ## Key Bindings ## -------------------------------------------------------------------
 myKeys conf@(XConfig {XMonad.modMask = super}) = M.fromList $
 
-    -- Launch terminal
+    -- Launch terminal : alacritty
     [ ((super,                      xK_Return),  spawn $ XMonad.terminal conf)
     , ((super .|. shiftMask,        xK_Return),  spawn $ myTerminal ++ " --float")
     , ((super .|. mod1Mask,         xK_Return),  spawn $ myTerminal ++ " --full")
+
+    -- Launch terminal : kitty
+    , ((controlMask .|. mod1Mask,        xK_t),  spawn myTermKitty)
 
     -- Launch applications
     , ((super .|. shiftMask,             xK_f),  spawn myFileManager)
@@ -293,7 +299,7 @@ myManageHook = composeAll . concat $
     , [resource =? i --> doIgnore | i <- myIgnores]
     ]
     where
-        myCFloats = ["alacritty-float", "Music", "MPlayer", "mpv",
+        myCFloats = ["alacritty-float", "kitty-float", "Music", "MPlayer", "mpv",
                     "Gimp", "feh", "Viewnior", "Gpicview",
                     "Kvantum Manager", "qt5ct", "VirtualBox Manager", "qemu", "Qemu-system-x86_64",
                     "Lxappearance", "Nitrogen", "Arandr", "Pavucontrol", "Xfce4-power-manager-settings", "Nm-connection-editor"]
