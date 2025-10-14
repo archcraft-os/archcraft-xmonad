@@ -86,6 +86,7 @@ myRofi_ROOT      = myRofiPath ++ "rofi_asroot"
 myRofi_BLUETOOTH = myRofiPath ++ "rofi_bluetooth"
 myRofi_LAUNCHER  = myRofiPath ++ "rofi_launcher"
 myRofi_MUSIC     = myRofiPath ++ "rofi_music"
+myRofi_SPOTIFY   = myRofiPath ++ "rofi_spotify"
 myRofi_POWER     = myRofiPath ++ "rofi_powermenu"
 myRofi_RUNNER    = myRofiPath ++ "rofi_runner"
 myRofi_SHOTS     = myRofiPath ++ "rofi_screenshot"
@@ -129,6 +130,7 @@ myKeys conf@(XConfig {XMonad.modMask = super}) = M.fromList $
     , ((super,                           xK_r),  spawn myRofi_ROOT)
     , ((super,                           xK_b),  spawn myRofi_BLUETOOTH)
     , ((super,                           xK_m),  spawn myRofi_MUSIC)
+    --, ((super,                           xK_m),  spawn myRofi_SPOTIFY)
     , ((super,                           xK_x),  spawn myRofi_POWER)
     , ((super,                           xK_s),  spawn myRofi_SHOTS)
     , ((super,                           xK_w),  spawn myRofi_WINDOW)
@@ -398,7 +400,7 @@ help = unlines ["The default modifier key is 'super'. Default keybindings:",
     "super + n                Open network menu",
     "super + r                Open as_root applet",
     "super + b                Open bluetooth applet",
-    "super + m                Open music (mpd) applet",
+    "super + m                Open music applet",
     "super + x                Open powermenu applet",
     "super + s                Open screenshot applet",
     "super + w                Open window applet",
