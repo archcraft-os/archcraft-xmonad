@@ -2,7 +2,7 @@
 
 pkgname=archcraft-xmonad
 pkgver=4.0
-pkgrel=5
+pkgrel=6
 pkgdesc="Xmonad Configurations for Archcraft"
 arch=('any')
 url="https://github.com/archcraft-os/archcraft-xmonad"
@@ -44,7 +44,7 @@ package() {
 	# Copy config files
 	cp -r "$srcdir"/alacritty 		"$_wmdir"
 	cp -r "$srcdir"/scripts 		"$_wmdir"
-	cp -r "$srcdir"/theme 			"$_wmdir"
+	cp -r "$srcdir"/theme			"$_wmdir"
 
 	chmod +x "$_wmdir"/scripts/*
 	chmod +x "$_wmdir"/theme/polybar.sh

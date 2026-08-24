@@ -1,4 +1,4 @@
--- Copyright (C) 2020-2025 Aditya Shakya <adi1090x@gmail.com>
+-- Copyright (C) 2020-2026 Aditya Shakya <adi1090x@gmail.com>
 --
 -- Xmonad config for Archcraft 
 
@@ -304,7 +304,8 @@ myManageHook = composeAll . concat $
         myCFloats = ["alacritty-float", "kitty-float", "Music", "MPlayer", "mpv",
                     "Gimp", "feh", "Viewnior", "Gpicview",
                     "Kvantum Manager", "qt5ct", "VirtualBox Manager", "qemu", "Qemu-system-x86_64",
-                    "Lxappearance", "Nitrogen", "Arandr", "Pavucontrol", "Xfce4-power-manager-settings", "Nm-connection-editor"]
+                    "Catfish", "Lxappearance", "Nitrogen", "Arandr", "Pavucontrol", "Xfce4-power-manager-settings", "Nm-connection-editor",
+                    "Calamares", "calamares", "archcraft-help", "archcraft-welcome"]
         myTFloats = ["Downloads", "Save As...", "About : Aditya Shakya", "Getting Started"]
         myRFloats = []
         myIgnores = ["desktop_window"]
